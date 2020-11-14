@@ -5002,6 +5002,18 @@ schema-utils@^2.7.0:
     ajv "^6.12.2"
     ajv-keywords "^3.4.1"
 
+selector-observer@^2.1.6:
+  version "2.1.6"
+  resolved "https://registry.yarnpkg.com/selector-observer/-/selector-observer-2.1.6.tgz#8d54e897f543315b2e7eff296ebb5142c693a130"
+  integrity sha512-/I0XLOlDbzk9tnZUqNos/2cshOxTNk1QhoXtJRR8OZ4JjVfXq6JUjqo4icPDQ8fzNr2uQ32mfOzJ6sXPao/6MA==
+  dependencies:
+    selector-set "^1.1"
+
+selector-set@^1.1:
+  version "1.1.5"
+  resolved "https://registry.yarnpkg.com/selector-set/-/selector-set-1.1.5.tgz#60c135aea482b6f46a2d95ad72058927690a8634"
+  integrity sha512-6SQw6yMew5iOZ8/cDHDEnJWRM4ot2mxP6szZyF5ptrBogw4AcS4EXRj/8BUfgAMwVfdL84qpModlBMOl2NVrsQ==
+
 "semver@2 || 3 || 4 || 5", semver@^5.4.1, semver@^5.5.0, semver@^5.6.0:
   version "5.7.1"
   resolved "https://registry.yarnpkg.com/semver/-/semver-5.7.1.tgz#a954f931aeba508d307bbf069eff0c01c96116f7"
