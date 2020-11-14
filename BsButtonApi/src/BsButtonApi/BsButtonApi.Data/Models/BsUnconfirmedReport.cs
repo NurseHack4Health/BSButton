@@ -4,7 +4,7 @@ using System.Text;
 
 namespace BsButtonApi.Data.Models
 {
-    class BsUnconfirmedReport
+    public class BsUnconfirmedReport
     {
     }
 }
