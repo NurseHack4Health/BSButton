@@ -1,0 +1,8 @@
+out
+dist/
+.idea/
+node_modules
+.vscode-test/
+*.vsix
+.vscode/
+*.pak
