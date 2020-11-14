@@ -1,9 +1,11 @@
 import * as WeatherForecasts from './WeatherForecasts';
 import * as Counter from './Counter';
+import {RouterState} from "connected-react-router";
 
 // The top-level state object
 export interface ApplicationState {
     counter: Counter.CounterState | undefined;
+    router: RouterState;
     weatherForecasts: WeatherForecasts.WeatherForecastsState | undefined;
 }
 
@@ -20,3 +22,7 @@ export const reducers = {
 export interface AppThunkAction<TAction> {
     (dispatch: (action: TAction) => void, getState: () => ApplicationState): void;
 }
+
+
+export const selectRouterState = (globalState: ApplicationState): RouterState =>
+  globalState.router;

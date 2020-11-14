@@ -1,16 +1,34 @@
 import * as React from 'react';
-import { Route } from 'react-router';
+import {useMemo} from 'react';
+import {Route, Switch} from 'react-router';
 import Layout from './components/Layout';
-import Home from './components/Home';
 import Counter from './components/Counter';
 import FetchData from './components/FetchData';
 
-import './custom.css'
+import './custom.css';
+import {MainLocations, SecondaryLocations} from "./components/ListItems";
 
-export default () => (
+export default () => {
+  const routes = useMemo(() =>
+      [
+        ...MainLocations,
+        ...SecondaryLocations
+      ].map(routeDef =>
+        (<Route key={routeDef.route}
+                path={routeDef.route}
+                component={routeDef.routeComponent}
+                {...routeDef.extraRouteProps} />)
+      )
+    , []);
+  return (
     <Layout>
-        <Route exact path='/' component={Home} />
-        <Route path='/counter' component={Counter} />
-        <Route path='/fetch-data/:startDateIndex?' component={FetchData} />
+      <Switch>
+        {
+          routes
+        }
+        <Route path='/counter' component={Counter}/>
+        <Route path='/fetch-data/:startDateIndex?' component={FetchData}/>
+      </Switch>
     </Layout>
-);
+  );
+};
