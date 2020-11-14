@@ -3,22 +3,15 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import SportsIcon from '@material-ui/icons/Sports';
-import ListSubheader from '@material-ui/core/ListSubheader';
 import DashboardIcon from '@material-ui/icons/Dashboard';
-import {
-  CloudUpload,
-  Favorite,
-  GifTwoTone,
-  RecordVoiceOver,
-  ShortText,
-  Assignment,
-  QuestionAnswer, Help
-} from "@material-ui/icons";
+import {Help, Home as HomeIcon,} from "@material-ui/icons";
 import {SvgIconTypeMap} from "@material-ui/core";
 import {OverridableComponent} from "@material-ui/core/OverridableComponent";
 import {Link} from 'react-router-dom';
 import Dashboard from "./Dashboard";
 import About from "./About";
+import Report from './Report';
+import Home from './Home';
 
 interface RouteDefinition {
   route: string;
@@ -29,8 +22,15 @@ interface RouteDefinition {
 }
 
 export const MainLocations: RouteDefinition[] = [
-  {name: 'Dashboard', icon: DashboardIcon, route: '/', routeComponent: Dashboard, extraRouteProps: {exact: true}},
-  {name: 'Report', icon: SportsIcon, route: '/report', routeComponent: Dashboard, extraRouteProps: {exact: true}},
+  {name: 'Home', icon: HomeIcon, route: '/', routeComponent: Home, extraRouteProps: {exact: true}},
+  {
+    name: 'Dashboard',
+    icon: DashboardIcon,
+    route: '/Dashboard',
+    routeComponent: Dashboard,
+    extraRouteProps: {exact: true}
+  },
+  {name: 'Report', icon: SportsIcon, route: '/report', routeComponent: Report, extraRouteProps: {exact: true}},
   {name: 'About', icon: Help, route: '/about', routeComponent: About, extraRouteProps: {}},
   // {name: 'Categorization', icon: Assignment, route: '/character/definition', routeComponent: CharacterSources, extraRouteProps: {}},
 ]
