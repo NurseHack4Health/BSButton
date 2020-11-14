@@ -78,7 +78,7 @@ const headCells = [
 ];
 
 function EnhancedTableHead(props: any) {
-  const {classes, onSelectAllClick, order, orderBy, numSelected, rowCount, onRequestSort} = props;
+  const {classes, order, orderBy, onRequestSort} = props;
   const createSortHandler = (property: any) => (event: any) => {
     onRequestSort(event, property);
   };
@@ -116,53 +116,10 @@ function EnhancedTableHead(props: any) {
 
 EnhancedTableHead.propTypes = {
   classes: PropTypes.object.isRequired,
-  numSelected: PropTypes.number.isRequired,
   onRequestSort: PropTypes.func.isRequired,
-  onSelectAllClick: PropTypes.func.isRequired,
   order: PropTypes.oneOf(['asc', 'desc']).isRequired,
   orderBy: PropTypes.string.isRequired,
   rowCount: PropTypes.number.isRequired,
-};
-
-const useToolbarStyles = makeStyles((theme) => ({
-  root: {
-    paddingLeft: theme.spacing(2),
-    paddingRight: theme.spacing(1),
-  },
-  highlight:
-    theme.palette.type === 'light'
-      ? {
-        color: theme.palette.secondary.main,
-        backgroundColor: lighten(theme.palette.secondary.light, 0.85),
-      }
-      : {
-        color: theme.palette.text.primary,
-        backgroundColor: theme.palette.secondary.dark,
-      },
-  title: {
-    flex: '1 1 100%',
-  },
-}));
-
-const EnhancedTableToolbar = (props: any) => {
-  const classes = useToolbarStyles();
-  const {numSelected} = props;
-
-  return (
-    <Toolbar
-      className={clsx(classes.root, {
-        [classes.highlight]: numSelected > 0,
-      })}
-    >
-      <Typography className={classes.title} variant="h6" id="tableTitle" component="div">
-        Reported Misinformation
-      </Typography>
-    </Toolbar>
-  );
-};
-
-EnhancedTableToolbar.propTypes = {
-  numSelected: PropTypes.number.isRequired,
 };
 
 const useStyles = makeStyles((theme) => ({
@@ -193,7 +150,6 @@ const Dashboard = () => {
   const classes = useStyles();
   const [order, setOrder] = React.useState('asc');
   const [orderBy, setOrderBy] = React.useState('calories');
-  const [selected, setSelected] = React.useState<string[]>([]);
   const [page, setPage] = React.useState(0);
   const [dense, setDense] = React.useState(false);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
@@ -204,7 +160,13 @@ const Dashboard = () => {
     <Container component={'main'} maxWidth={'lg'} style={{margin: '1rem 0 0 0'}}>
       <div className={classes.root}>
         <Paper className={classes.paper}>
-          <EnhancedTableToolbar numSelected={selected.length}/>
+          <Toolbar
+            className={clsx(classes.root)}
+          >
+            <Typography variant="h6" id="tableTitle" component="div">
+              Reported Misinformation
+            </Typography>
+          </Toolbar>
           <TableContainer>
             <Table
               className={classes.table}
@@ -214,17 +176,8 @@ const Dashboard = () => {
             >
               <EnhancedTableHead
                 classes={classes}
-                numSelected={selected.length}
                 order={order}
                 orderBy={orderBy}
-                onSelectAllClick={(event) => {
-                  if (event.target.checked) {
-                    const newSelecteds: string[] = rows.map((n) => n.name);
-                    setSelected(newSelecteds);
-                    return;
-                  }
-                  setSelected([]);
-                }}
                 onRequestSort={(event, property) => {
                   const isAsc = orderBy === property && order === 'asc';
                   setOrder(isAsc ? 'desc' : 'asc');
@@ -236,36 +189,16 @@ const Dashboard = () => {
                 {stableSort(rows, getComparator(order, orderBy))
                   .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                   .map((row, index) => {
-                    const isItemSelected = selected.indexOf(row.name) !== -1;
                     const labelId = `enhanced-table-checkbox-${index}`;
 
                     return (
                       <TableRow
                         hover
                         onClick={(event) => {
-                          const selectedIndex = selected.indexOf(row.name);
-                          let newSelected: string[] = [];
-
-                          if (selectedIndex === -1) {
-                            newSelected = newSelected.concat(selected, row.name);
-                          } else if (selectedIndex === 0) {
-                            newSelected = newSelected.concat(selected.slice(1));
-                          } else if (selectedIndex === selected.length - 1) {
-                            newSelected = newSelected.concat(selected.slice(0, -1));
-                          } else if (selectedIndex > 0) {
-                            newSelected = newSelected.concat(
-                              selected.slice(0, selectedIndex),
-                              selected.slice(selectedIndex + 1),
-                            );
-                          }
-
-                          setSelected(newSelected);
                         }}
                         role="checkbox"
-                        aria-checked={isItemSelected}
                         tabIndex={-1}
                         key={row.name}
-                        selected={isItemSelected}
                       >
                         <TableCell padding="checkbox">
 
