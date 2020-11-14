@@ -272,3 +272,5 @@ FakesAssemblies/
 *.opt
 
 appsettings.*.json
+
+*lock.json
