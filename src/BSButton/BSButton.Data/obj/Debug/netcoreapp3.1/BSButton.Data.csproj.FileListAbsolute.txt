@@ -1,9 +1,0 @@
-C:\NurseHack4Health\src\BSButton\BSButton.Data\bin\Debug\netcoreapp3.1\BSButton.Data.deps.json
-C:\NurseHack4Health\src\BSButton\BSButton.Data\bin\Debug\netcoreapp3.1\BSButton.Data.dll
-C:\NurseHack4Health\src\BSButton\BSButton.Data\bin\Debug\netcoreapp3.1\BSButton.Data.pdb
-C:\NurseHack4Health\src\BSButton\BSButton.Data\obj\Debug\netcoreapp3.1\BSButton.Data.csprojAssemblyReference.cache
-C:\NurseHack4Health\src\BSButton\BSButton.Data\obj\Debug\netcoreapp3.1\BSButton.Data.AssemblyInfoInputs.cache
-C:\NurseHack4Health\src\BSButton\BSButton.Data\obj\Debug\netcoreapp3.1\BSButton.Data.AssemblyInfo.cs
-C:\NurseHack4Health\src\BSButton\BSButton.Data\obj\Debug\netcoreapp3.1\BSButton.Data.csproj.CoreCompileInputs.cache
-C:\NurseHack4Health\src\BSButton\BSButton.Data\obj\Debug\netcoreapp3.1\BSButton.Data.dll
-C:\NurseHack4Health\src\BSButton\BSButton.Data\obj\Debug\netcoreapp3.1\BSButton.Data.pdb
