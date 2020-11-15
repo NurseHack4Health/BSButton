@@ -1,0 +1,69 @@
+﻿@model BsButtonAsp.Models.BsCreateViewModel
+
+@{
+    ViewData["Title"] = "CreateView";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>CreateView</h1>
+
+<h4>BsCreateViewModel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="CreateView">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="ReporterUserName" class="control-label"></label>
+                <input asp-for="ReporterUserName" class="form-control" />
+                <span asp-validation-for="ReporterUserName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ReportedNameOfPoster" class="control-label"></label>
+                <input asp-for="ReportedNameOfPoster" class="form-control" />
+                <span asp-validation-for="ReportedNameOfPoster" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ReportedFrom" class="control-label"></label>
+                <input asp-for="ReportedFrom" class="form-control" />
+                <span asp-validation-for="ReportedFrom" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ReportedDateTime" class="control-label"></label>
+                <input asp-for="ReportedDateTime" class="form-control" />
+                <span asp-validation-for="ReportedDateTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ReportReasonCode" class="control-label"></label>
+                <input asp-for="ReportReasonCode" class="form-control" />
+                <span asp-validation-for="ReportReasonCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ReportReason" class="control-label"></label>
+                <input asp-for="ReportReason" class="form-control" />
+                <span asp-validation-for="ReportReason" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ReportedFromUrl" class="control-label"></label>
+                <input asp-for="ReportedFromUrl" class="form-control" />
+                <span asp-validation-for="ReportedFromUrl" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ReportText" class="control-label"></label>
+                <input asp-for="ReportText" class="form-control" />
+                <span asp-validation-for="ReportText" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

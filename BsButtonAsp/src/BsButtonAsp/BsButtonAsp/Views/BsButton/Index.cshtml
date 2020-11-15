@@ -1,0 +1,78 @@
+﻿@model IEnumerable<BsButtonAsp.Models.BsCreateViewModel>
+
+@{
+    ViewData["Title"] = "BsButton";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>BsButton</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ReporterUserName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReportedNameOfPoster)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReportedFrom)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReportedDateTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReportReasonCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReportReason)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReportedFromUrl)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReportText)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReporterUserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReportedNameOfPoster)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReportedFrom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReportedDateTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReportReasonCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReportReason)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReportedFromUrl)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReportText)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
