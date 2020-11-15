@@ -6,6 +6,7 @@
     "activeTab",
     "declarativeContent",
     "storage",
+    "contextMenus",
     "<all_urls>"
   ],
   "options_page": "options.html",
@@ -29,7 +30,8 @@
   ],
   "background": {
     "scripts": [
-      "js/background.js"
+      "js/background.js",
+      "js/vendor.js"
     ]
   },
   "icons": {
