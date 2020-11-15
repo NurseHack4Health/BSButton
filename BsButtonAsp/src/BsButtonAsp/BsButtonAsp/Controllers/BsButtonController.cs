@@ -33,6 +33,10 @@ namespace BsButtonAsp.Controllers
         }
 
 
-
+        public IActionResult CreateView(BsCreateViewModel viewModel)
+        {
+            var result = Api.Post(viewModel);
+            return RedirectToAction("Index");
+        }
     }
 }
